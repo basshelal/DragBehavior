@@ -1,0 +1,3 @@
+rootProject.name='DragBehavior'
+include ':app'
+include ':dragbehavior'
