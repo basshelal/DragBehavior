@@ -1,7 +1,8 @@
-package uk.whitecrescent.dragbehavior
+package com.github.basshelal.example
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.github.basshelal.R
 
 class MainActivity : AppCompatActivity() {
 
