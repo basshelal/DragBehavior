@@ -162,6 +162,12 @@ inline val View.orientation: Orientation
 inline val ViewGroup.allChildren: List<View>
     get() = this.childrenRecursiveSequence().toList()
 
+inline fun ViewGroup.forEachReversed(action: (view: View) -> Unit) {
+    for (index in childCount downTo 0) {
+        getChildAt(index)?.also(action)
+    }
+}
+
 inline fun ViewGroup.childUnder(x: Int, y: Int): View? {
     // Copied from RecyclerView.findChildViewUnder()
     children.toList().asReversed().forEach {

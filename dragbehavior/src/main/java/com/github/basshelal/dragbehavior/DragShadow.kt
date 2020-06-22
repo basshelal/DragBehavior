@@ -19,8 +19,10 @@ import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import com.github.basshelal.dragbehavior.I
 import com.github.basshelal.dragbehavior.ObservableDragBehavior
+import com.github.basshelal.dragbehavior.changeParent
 import com.github.basshelal.dragbehavior.globalVisibleRectF
 import com.github.basshelal.dragbehavior.parentViewGroup
+import com.github.basshelal.dragbehavior.rootViewGroup
 
 /**
  * An [ImageView] used to represent the draggable "shadow" of any [View].
@@ -55,6 +57,14 @@ constructor(context: Context,
 
     infix fun updateToMatch(view: View) {
         updateToMatchBitmapOf(view)
+        updateLayoutParams()
+        updateToMatchPositionOf(view)
+        this.bringToFront()
+    }
+
+    infix fun rootUpdateToMatch(view: View) {
+        updateToMatchBitmapOf(view)
+        this.rootViewGroup?.also { this.changeParent(it) }
         updateLayoutParams()
         updateToMatchPositionOf(view)
         this.bringToFront()
